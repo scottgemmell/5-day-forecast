@@ -1,14 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Day from "./Day";
+import spinner from "../assets/svgs/spinner.svg";
 
 class Forecasts extends Component {
-
-    constructor(props){
-        super(props);
-
-    }
-
 
 
     render() {
@@ -29,7 +24,7 @@ class Forecasts extends Component {
         }
 
         if (forecastsLoading === true) {
-            return <div>Loading...</div>;
+            return <div className="u-spinner"><img src={spinner} alt="Loading..." /></div>;
         }
 
         return (
