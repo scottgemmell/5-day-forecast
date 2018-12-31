@@ -1,5 +1,5 @@
 import React from "react";
-import App from "./App";
+import AppContainer from "./AppContainer";
 import { shallow } from "enzyme";
 
 const defaultProps = () => ({});
