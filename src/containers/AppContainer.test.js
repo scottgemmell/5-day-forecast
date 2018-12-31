@@ -5,11 +5,11 @@ import { shallow } from "enzyme";
 const defaultProps = () => ({});
 const setup = (overrideProps = {}) => {
     const props = Object.assign({}, defaultProps(), overrideProps);
-    const wrapper = shallow(<App {...props} />);
+    const wrapper = shallow(<AppContainer {...props} />);
     return { wrapper, props };
 };
 
-describe("<App />", () => {
+describe("<AppContainer />", () => {
     it("renders", () => {
         const { wrapper } = setup();
         expect(wrapper).toMatchSnapshot();
