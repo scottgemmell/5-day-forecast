@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Col } from 'react-bootstrap';
-import { toDayOfTheWeek } from "../utils/helper.js";
+import { toDayOfTheWeek, getTempStatus } from "../utils/helper.js";
 import cloudyDay from "../assets/svgs/vendor/amcharts/animated/cloudy.svg";
 import rainyDay from "../assets/svgs/vendor/amcharts/animated/rainy-5.svg";
 import sunnyDay from "../assets/svgs/vendor/amcharts/animated/day.svg";
@@ -47,7 +47,7 @@ class Day extends Component {
                                     Temperature:
                                 </dt>
                                 <dd>
-                                    {temp}
+                                    <span className={`a-temp a-temp--` + getTempStatus(temp)}>{temp}&deg;</span>
                                 </dd>
                             </dl>
                         </Col>
