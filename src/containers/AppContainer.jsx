@@ -11,13 +11,13 @@ class AppContainer extends Component {
             
 		};
         
-		this.handleChange = this.handleChange.bind(this);
+		//this.handleChange = this.handleChange.bind(this);
     }
     
-    handleChange(e) {
-		const { name, value } = e.target;
-		console.log({ name, value });
-    }
+    // handleChange(e) {
+	// 	const { name, value } = e.target;
+	// 	console.log({ name, value });
+    // }
 
     handleSubmit(e) {
         e.preventDefault();
@@ -28,7 +28,7 @@ class AppContainer extends Component {
     render() {
         return (
             <div>
-                <Controls handleChange={this.handleChange} handleSubmit={this.handleSubmit}/>
+                <Controls handleSubmit={this.handleSubmit}/>
                 <Day />
             </div>
         );
