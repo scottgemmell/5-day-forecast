@@ -6,19 +6,10 @@ class Day extends Component {
     render() {
         return (
             <section>
-                <h2 className="section-title">
-                    Forecasts
-                </h2>
-
-                <h3 className="">
-                    {this.props.selectedCity}
-                </h3>
-                <Grid>
-                <div className="slab u-bgcolor-b">
-                        <Col xs={12} sm={4} className="slab__head u-bgcolor-a">
-                            <img src={cloudyDay} alt="Cloudy" />
-                        </Col>
-                        <Col xs={12} sm={8} className="slab__body u-bgcolor-a">
+                <div className="c-day day@small day@medium">
+                
+                
+                        <Col xs={6} className="c-day__body u-bgcolor-a">
                             <dl>
                                 <dt>
                                     Day:
@@ -46,9 +37,12 @@ class Day extends Component {
                                 </dd>
                             </dl>
                         </Col>
+                        <Col xs={6} className="c-day__head">
+                        
+                            <img src={cloudyDay} alt="Cloudy" />
+                        </Col>
                     </div>
 
-                </Grid>
             </section>
         )
     }

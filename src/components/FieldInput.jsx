@@ -4,12 +4,12 @@ import {
 	FormGroup, FormControl, ControlLabel, HelpBlock,
 } from "react-bootstrap";
 
-const FieldInput = ({ id, name, value, title, helpText, placeholderText, handleChange }) => {
+const FieldInput = ({ id, name, value, title, helpText, placeholderText, handleChange, handleBlur, hideLabel, modifier }) => {
 	return (
 		<FormGroup
 			controlId={id}
 		>
-			<ControlLabel>
+			<ControlLabel className={hideLabel ? "u-visibility-hidden" : ""}>
 				{title}
 			</ControlLabel>
                 {" "}
@@ -19,6 +19,8 @@ const FieldInput = ({ id, name, value, title, helpText, placeholderText, handleC
 				value={value}
 				placeholder={placeholderText}
 				onChange={handleChange}
+				onBlur={handleBlur}
+				bsClass={`form-control ${modifier}`}
 			/>
 			<FormControl.Feedback />
 
