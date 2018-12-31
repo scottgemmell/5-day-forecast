@@ -1,9 +1,20 @@
 import React, { Component } from "react";
-import { Grid, Col } from 'react-bootstrap';
-import cloudyDay from "../assets/svgs/vendor/amcharts/animated/cloudy-day-1.svg";
+import { Col } from 'react-bootstrap';
+import cloudyDay from "../assets/svgs/vendor/amcharts/animated/cloudy.svg";
+import rainyDay from "../assets/svgs/vendor/amcharts/animated/rainy-5.svg";
+import sunnyDay from "../assets/svgs/vendor/amcharts/animated/day.svg";
+import clearDay from "../assets/svgs/vendor/amcharts/animated/thunder.svg";
+import snowyDay from "../assets/svgs/vendor/amcharts/animated/snowy-6.svg";
 
 class Day extends Component {
     render() {
+
+        const { 
+            item: {
+                weather,
+            } 
+        } = this.props;
+
         return (
             <section>
                 <div className="c-day day@small day@medium">
@@ -38,8 +49,21 @@ class Day extends Component {
                             </dl>
                         </Col>
                         <Col xs={6} className="c-day__head">
-                        
-                            <img src={cloudyDay} alt="Cloudy" />
+                            {weather[0].main === "Rain" && <div>
+                                <img src={rainyDay} alt="Rain" />
+                            </div>}
+                            {weather[0].main === "Clouds" && <div>
+                                <img src={cloudyDay} alt="Clouds" />
+                            </div>}
+                            {weather[0].main === "Clear" && <div>
+                                <img src={clearDay} alt="Clear" />
+                            </div>}
+                            {weather[0].main === "Sunny" && <div>
+                                <img src={sunnyDay} alt="Sunny" />
+                            </div>}
+                            {weather[0].main === "Snowy" && <div>
+                                <img src={snowyDay} alt="Snowy" />
+                            </div>}
                         </Col>
                     </div>
 
