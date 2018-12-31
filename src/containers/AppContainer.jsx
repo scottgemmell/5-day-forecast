@@ -1,24 +1,38 @@
 import React, { Component } from "react";
-import { Grid } from "react-bootstrap";
-import "../assets/scss/master.scss";
-import Controls from "../components/Controls";
-import Day from "../components/Day";
+import Controls from "../components/Controls.jsx";
+import Day from "../components/Day.jsx";
 
 class AppContainer extends Component {
-	render() {
-		return (
-			<Grid>
-				<div className="app">
-					<Controls />
-                    <main>
-                        <Grid>
-                            <Day />
-                        </Grid>
-                    </main>
-				</div>
-			</Grid>
-		);
-	}
+
+    constructor(props) {
+        super(props);
+
+		this.state = {
+            
+		};
+        
+		this.handleChange = this.handleChange.bind(this);
+    }
+    
+    handleChange(e) {
+		const { name, value } = e.target;
+		console.log({ name, value });
+    }
+
+    handleSubmit(e) {
+        e.preventDefault();
+		const { value } = e.target;
+		console.log({ value });
+    }
+    
+    render() {
+        return (
+            <div>
+                <Controls handleChange={this.handleChange} handleSubmit={this.handleSubmit}/>
+                <Day />
+            </div>
+        );
+    }
 }
 
 export default AppContainer;

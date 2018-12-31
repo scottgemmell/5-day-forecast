@@ -13,13 +13,16 @@ code {
     monospace;
 }
 
-
 $bgcolor: #0cc;
 
 .container {
     padding-left: 20px;
     padding-right: 20px;
     min-width: 300px;
+}
+
+.section-title {
+    display: none;
 }
 
 .app {
@@ -38,7 +41,7 @@ $bgcolor: #0cc;
     float: left;
     width: 100%;
     clear: both;
-
+    margin-bottom: 20px;
     padding: 20px;
 
     .slab__head {
@@ -54,7 +57,7 @@ $bgcolor: #0cc;
     }
 
     .slab__body {
-        padding: 20px;
+        padding: 0 20px;
     }
 }
 

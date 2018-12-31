@@ -5,28 +5,33 @@ import FieldInput from "./FieldInput";
 class Controls extends Component {
     render() {
 
-        const { handleFieldChange} = this.props;
+        const { handleChange, handleSubmit } = this.props;
         return (
-            <header className="app__header">
+        
+                <header className="app__header">
                 <Grid>
                     <h1>
                         Weather app
                     </h1>
-                    <Form inline>
+                    <Form inline onSubmit={handleSubmit}>
                         <FieldInput 
                             id="fieldCity" 
                             name="city"
                             title="Enter a City"
-                            placeholderText="Enter a City" 
-                            handleFieldChange={handleFieldChange}
+                            placeholderText="e.g Glasgow" 
+                            handleChange={handleChange}
                         />
                         {" "}
-                        <Button bsStyle="primary">
+                        <Button 
+                            bsStyle="primary"
+                            type="submit" 
+                        >
                             Get 5-day forecast
                         </Button>
                     </Form>
-                </Grid>
-            </header>
+                    </Grid>
+                </header>
+                
         );
     }
 }
