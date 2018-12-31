@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Col } from 'react-bootstrap';
+import { toDayOfTheWeek } from "../utils/helper.js";
 import cloudyDay from "../assets/svgs/vendor/amcharts/animated/cloudy.svg";
 import rainyDay from "../assets/svgs/vendor/amcharts/animated/rainy-5.svg";
 import sunnyDay from "../assets/svgs/vendor/amcharts/animated/day.svg";
@@ -28,7 +29,7 @@ class Day extends Component {
                                     Day:
                                 </dt>
                                 <dd>
-                                    {dt_txt}
+                                    {toDayOfTheWeek(dt_txt)}
                                 </dd>
                                 <dt>
                                     Weather:
