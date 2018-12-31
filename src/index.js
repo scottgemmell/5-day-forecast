@@ -6,7 +6,7 @@ import {
     applyMiddleware
 } from "redux";
 import { createLogger } from "redux-logger"
-import { composeWithDevTools } from "redux-devtools-extension";
+import { composeWithDevTools } from "redux-devtools-extension/developmentOnly";
 import thunk from "redux-thunk";
 import reducers from "./reducers";
 import "./assets/scss/master.scss";
@@ -20,7 +20,7 @@ const logger = createLogger({
 
 const composeEnhancers = composeWithDevTools({
     // Specify name here, actionsBlacklist, actionsCreators and other options if needed
-  });
+});
 
 const store = createStore(
     reducers, 

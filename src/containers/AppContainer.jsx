@@ -1,38 +1,85 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { Alert, Grid } from 'react-bootstrap';
 import Controls from "../components/Controls.jsx";
-import Day from "../components/Day.jsx";
+import { cityUpdated, countryUpdated, reset, getForecastData } from "../actions";
+import Forecasts from "../components/Forecasts.jsx";
 
 class AppContainer extends Component {
 
     constructor(props) {
         super(props);
 
-		this.state = {
-            
-		};
-        
-		//this.handleChange = this.handleChange.bind(this);
+        this.handleCityChange = this.handleCityChange.bind(this);
+        this.handleCountryChange = this.handleCountryChange.bind(this);
     }
-    
-    // handleChange(e) {
-	// 	const { name, value } = e.target;
-	// 	console.log({ name, value });
-    // }
 
-    handleSubmit(e) {
+	handleCityChange(e) {
+        const { cityUpdated } = this.props;
+        const { name, value } = e.target;
+        //console.log("handleCityChange", { name, value });
+        cityUpdated({ name, value });
+    }
+ 
+    handleCountryChange(e) {
+		const { countryUpdated } = this.props;
+        const { name, value } = e.target;
+        //console.log("handleCountryChange", { name, value });
+        countryUpdated({ name, value });
+    }
+
+    getForecasts = (e) => {
         e.preventDefault();
-		const { value } = e.target;
-		console.log({ value });
+        //console.log(this.state);
+        const { getForecastData, city, country } = this.props;
+        
+        getForecastData({city, country});
     }
     
     render() {
+        const { data, forecastsFailure } = this.props;
+        
+
         return (
-            <div>
-                <Controls handleSubmit={this.handleSubmit}/>
-                <Day />
+            <div className="app">
+                <Controls 
+                    handleCityChange={this.handleCityChange} 
+                    handleCountryChange={this.handleCountryChange} 
+                    handleCityBlur={this.handleCityChange} 
+                    handleCountryBlur={this.handleCountryChange} 
+                   
+                    handleSubmit={this.getForecasts} 
+                />
+                <Grid>
+                    {(data !== "") && <Forecasts />}
+
+                    {(forecastsFailure === true) && 
+                    <div>
+                        <h2 className="section-title">Error :(</h2>
+                        <Alert bsStyle="danger" bsClass="c-controls__alert alert">
+        Invalid <strong>City</strong> and/or <strong>Country</strong></Alert>
+                    </div>}
+                </Grid>
+                
             </div>
         );
     }
 }
 
-export default AppContainer;
+const mapStateToProps = (state) => ({
+    city: state.forecasts.city,
+    country: state.forecasts.country,
+    data: state.forecasts.data,
+    forecastsFailure: state.forecastsFailure,
+    forecastsLoading: state.forecastsLoading
+});
+
+export default connect(
+    mapStateToProps,
+    {
+        cityUpdated,
+        countryUpdated,
+        reset,
+        getForecastData,
+    },
+)(AppContainer);

@@ -1,74 +1,69 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 import { Grid, Form, Button } from 'react-bootstrap';
 import FieldInput from "./FieldInput";
-import { updateCity } from "../actions";
 
 class Controls extends Component {
 
-    constructor(props) {
-        super(props);
-
-		this.state = {
-            selectedCity: null
-		};
-        
-		this.handleChange = this.handleChange.bind(this);
-	}
-
-	handleChange(e) {
-		const { selectedCity } = this.props;
-        const { value } = e.target;
-        console.log("handleChange", value);
-		selectedCity({ value });
-    }
-    
     render() {
 
-        const { handleSubmit } = this.props;
+        const { handleCityBlur, handleCityChange, handleCountryBlur, handleCountryChange, handleSubmit } = this.props;
         return (
         
-                <header className="app__header">
+            <header className="header">
                 <Grid>
-                    <h1 className="page-title">
-                        Weather app
+                    <h1 className="page-title header__title">
+                        5-day forecast
                     </h1>
 
                     <section>
-                        <h2 className="section-title">
+                        <h2 className="section-title u-visibility-hidden">
                             Controls
                         </h2>
-                        <Form inline onSubmit={handleSubmit}>
-                            <FieldInput 
-                                id="fieldCity" 
-                                name="city"
-                                title="Enter a City"
-                                placeholderText="e.g Glasgow" 
-                                handleChange={this.handleChange}
-                            />
-                            {" "}
-                            <Button 
-                                bsStyle="primary"
-                                type="submit" 
-                            >
-                                Get 5-day forecast
-                            </Button>
-                        </Form>
+                        <div className="c-controls">
+                            <Form inline onSubmit={handleSubmit}>
+                                <div className="c-controls__inputs">
+                                    <FieldInput 
+                                        id="fieldCity" 
+                                        name="city"
+                                        //value=""
+                                        placeholderText="Glasgow" 
+                                        title="Enter a City"
+                                        handleBlur={handleCityBlur}
+                                        handleChange={handleCityChange}
+                                        hideLabel={true} 
+                                        modifier="c-controls__input c-controls__input--city"
+                                    />
+                                    {" "}
+                                    <FieldInput 
+                                        id="fieldCountry" 
+                                        name="country"
+                                        //value=""
+                                        placeholderText="UK" 
+                                        title="Enter a Country"
+                                        handleBlur={handleCountryBlur}
+                                        handleChange={handleCountryChange}
+                                        hideLabel={true} 
+                                        modifier="c-controls__input c-controls__input--country"
+                                    />
+                                    {" "}
+                                </div>
+                                <div className="c-controls__actions">
+                                    <Button 
+                                        bsStyle="primary"
+                                        type="submit" 
+                                    >
+                                        Get 5-day forecast
+                                    </Button>
+                                </div>
+                              
+                            </Form>
+                        </div>
+                        
                     </section>
-                    </Grid>
-                </header>
-                
+                </Grid>
+            </header>    
         );
     }
 }
 
-const mapStateToProps = state => ({
-    selectedCity: state.selectedCity,
-});
-
-export default connect(
-    mapStateToProps,
-    {
-		selectedCity: updateCity,
-    }
-)(Controls);
+export default Controls;
