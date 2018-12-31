@@ -26,6 +26,15 @@ export const setOpenData = data => ({
 	payload: data
 });
 
+export function forecastsFailure(bool) {
+    return {
+        type: 'FORECASTS_FAILURE',
+        failure: bool
+    };
+}
+
+
+
 export function forecastsSuccess(forecasts) {
     return {
         type: FORECASTS_SUCCESS,
@@ -34,17 +43,47 @@ export function forecastsSuccess(forecasts) {
 }
 
 export const getForecastData = ({city, country}) => (dispatch) => {
-    
+   
 
     fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city},${country}&units=metric&appid=${API_KEY}`)
         .then((response) => {
             if (!response.ok) {
                 throw Error(response.statusText);
             }
-            
+            dispatch(forecastsFailure(false));
             return response;
         })
         .then((response) => response.json())
         .then((forecasts) => dispatch(forecastsSuccess(forecasts)))
-        
+        .catch(
+            () => {
+                dispatch(forecastsFailure(true));
+            }
+        );
 };
+
+// export function getForecastData({city, country}) {
+//     return (dispatch) => {
+// 		dispatch(forecastsLoading(true));
+
+//         fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city},${country}&units=metric&appid=${API_KEY}`)
+//             .then((response) => {
+//                 if (!response.ok) {
+//                     throw Error(response.statusText);
+//                     //
+//                 }
+//                 dispatch(forecastsLoading(false));
+//                 dispatch(forecastsFailure(false));
+//                 return response;
+//             })
+//             .then((response) => response.json())
+//             .then((forecasts) => dispatch(forecastsSuccess(forecasts)))
+//             .catch(
+//                 () => { 
+//                     //dispatch(forecastsLoading(false));
+//                     dispatch(forecastsFailure(true));
+//                 }
+//             );
+//     };
+// }
+

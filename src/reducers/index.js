@@ -37,8 +37,18 @@ const setForecastsReducer = (state = defaultState, action) => {
 	}
 };
 
+export function forecastsFailure(state = false, action) {
+    switch (action.type) {
+        case "FORECASTS_FAILURE":
+            return action.failure;
+        default:
+            return state;
+    }
+}
+
 
 
 export default combineReducers({
 	forecasts: setForecastsReducer,
+    forecastsFailure,
 });

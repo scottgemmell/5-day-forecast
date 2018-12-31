@@ -42,6 +42,7 @@ Forecasts.defaultProps = {
 
 const mapStateToProps = (state) => ({
     forecasts: state.forecasts.data,
+    forecastsFailure: state.forecastsFailure,
 });
 
 export default connect(
