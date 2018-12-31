@@ -12,7 +12,7 @@ const FieldInput = ({ id, name, value, title, helpText, placeholderText, handleC
 			<ControlLabel className={hideLabel ? "u-visibility-hidden" : ""}>
 				{title}
 			</ControlLabel>
-                {" "}
+			{" "}
 			<FormControl
 				type="text" 
 				name={name}
@@ -44,7 +44,7 @@ FieldInput.propTypes = {
 	value: PropTypes.string,
 	helpText: PropTypes.string,
 	placeholderText: PropTypes.string,
-	handleChange: PropTypes.func.isRequired,
+	handleChange: PropTypes.func,
 };
 
 export default FieldInput;
