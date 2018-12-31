@@ -11,7 +11,9 @@ class Day extends Component {
 
         const { 
             item: {
+                dt_txt, 
                 weather,
+                main: { temp }
             } 
         } = this.props;
 
@@ -26,25 +28,25 @@ class Day extends Component {
                                     Day:
                                 </dt>
                                 <dd>
-                                    Monday
+                                    {dt_txt}
                                 </dd>
                                 <dt>
                                     Weather:
                                 </dt>
                                 <dd>
-                                    Sunny
+                                    {weather[0].main}
                                 </dd>
                                 <dt>
                                     Description:
                                 </dt>
                                 <dd>
-                                    Lorem ipsum dolor set elit
+                                    {weather[0].description}
                                 </dd>
                                 <dt>
                                     Temperature:
                                 </dt>
                                 <dd>
-                                    37
+                                    {temp}
                                 </dd>
                             </dl>
                         </Col>
