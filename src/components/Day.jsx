@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 import { Col } from 'react-bootstrap';
 import { toDayOfTheWeek, getTempStatus } from "../utils/helper.js";
 import cloudyDay from "../assets/svgs/vendor/amcharts/animated/cloudy.svg";
@@ -10,7 +11,7 @@ import snowyDay from "../assets/svgs/vendor/amcharts/animated/snowy-6.svg";
 const Day = ({ item: { dt_txt, weather, main: { temp } } }) => {
     return (
         <div className="c-day day@small day@medium">
-            <Col xs={6} className="c-day__body u-bgcolor-a">
+            <Col xs={6} className="c-day__body">
                 <dl>
                     <dt>
                         Day:
@@ -59,5 +60,21 @@ const Day = ({ item: { dt_txt, weather, main: { temp } } }) => {
         </div>
     )
 }
+
+Day.propTypes = {
+	item: 
+        PropTypes.shape({
+            dt_txt: PropTypes.string.isRequired,
+            weather: PropTypes.arrayOf(
+                PropTypes.shape({
+                    main: PropTypes.string.isRequired,
+                    description: PropTypes.string.isRequired,
+                })
+            ).isRequired,
+            main: PropTypes.shape({
+                temp: PropTypes.string.number,
+            }),
+        }).isRequired,
+};
 
 export default Day;
