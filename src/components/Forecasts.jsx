@@ -7,7 +7,6 @@ class Forecasts extends Component {
 
     constructor(props){
         super(props);
-
         this.filterByDays = this.filterByDays.bind(this);
     }
 
@@ -30,8 +29,6 @@ class Forecasts extends Component {
             forecastsFailure
         } = this.props;
         const filteredList = this.filterByDays(list);
-
-        
 
         if (forecastsFailure === true) {
             return <div></div>;

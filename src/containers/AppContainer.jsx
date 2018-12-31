@@ -9,7 +9,6 @@ class AppContainer extends Component {
 
     constructor(props) {
         super(props);
-
         this.handleCityChange = this.handleCityChange.bind(this);
         this.handleCountryChange = this.handleCountryChange.bind(this);
         this.handleReset = this.handleReset.bind(this);
@@ -18,14 +17,12 @@ class AppContainer extends Component {
 	handleCityChange(e) {
         const { cityUpdated } = this.props;
         const { name, value } = e.target;
-        //console.log("handleCityChange", { name, value });
         cityUpdated({ name, value });
     }
  
     handleCountryChange(e) {
 		const { countryUpdated } = this.props;
         const { name, value } = e.target;
-        //console.log("handleCountryChange", { name, value });
         countryUpdated({ name, value });
     }
 
@@ -36,18 +33,12 @@ class AppContainer extends Component {
 
     getForecasts = (e) => {
         e.preventDefault();
-        //console.log(this.state);
         const { getForecastData, city, country } = this.props;
-        
         getForecastData({city, country});
     }
     
     render() {
         const { city, country, data, forecastsFailure } = this.props;
-        //const { city } = data;
-        //console.log("data", { data });
-
-        
 
         return (
             <div className="app">
@@ -67,7 +58,8 @@ class AppContainer extends Component {
                     <div>
                         <h2 className="section-title">Error :(</h2>
                         <Alert bsStyle="danger" bsClass="c-controls__alert alert">
-        Invalid <strong>City</strong> and/or <strong>Country</strong></Alert>
+                            Invalid <strong>City</strong> and/or <strong>Country</strong>
+                        </Alert>
                     </div>}
                 </Grid>
                 
