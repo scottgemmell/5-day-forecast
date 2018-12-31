@@ -33,7 +33,12 @@ export function forecastsFailure(bool) {
     };
 }
 
-
+export function forecastsLoading(bool) {
+    return {
+        type: 'FORECASTS_LOADING',
+        loading: bool
+    };
+}
 
 export function forecastsSuccess(forecasts) {
     return {
@@ -43,13 +48,14 @@ export function forecastsSuccess(forecasts) {
 }
 
 export const getForecastData = ({city, country}) => (dispatch) => {
-   
+    dispatch(forecastsLoading(true));
 
     fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city},${country}&units=metric&appid=${API_KEY}`)
         .then((response) => {
             if (!response.ok) {
                 throw Error(response.statusText);
             }
+            dispatch(forecastsLoading(false));
             dispatch(forecastsFailure(false));
             return response;
         })

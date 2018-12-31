@@ -3,14 +3,34 @@ import { connect } from "react-redux";
 import Day from "./Day";
 
 class Forecasts extends Component {
+
+    constructor(props){
+        super(props);
+
+    }
+
+
+
     render() {
         const { 
             forecasts: 
             { 
                 list, 
                 city: { name } 
-            }, 
-        } = this.props;      
+            },  
+            forecastsLoading,
+            forecastsFailure
+        } = this.props;
+
+        
+
+        if (forecastsFailure === true) {
+            return <div></div>;
+        }
+
+        if (forecastsLoading === true) {
+            return <div>Loading...</div>;
+        }
 
         return (
             <div>
@@ -43,6 +63,7 @@ Forecasts.defaultProps = {
 const mapStateToProps = (state) => ({
     forecasts: state.forecasts.data,
     forecastsFailure: state.forecastsFailure,
+    forecastsLoading: state.forecastsLoading
 });
 
 export default connect(

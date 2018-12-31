@@ -46,9 +46,18 @@ export function forecastsFailure(state = false, action) {
     }
 }
 
+export function forecastsLoading(state = false, action) {
+    switch (action.type) {
+        case "FORECASTS_LOADING":
+            return action.loading;
 
+        default:
+            return state;
+    }
+}
 
 export default combineReducers({
 	forecasts: setForecastsReducer,
     forecastsFailure,
+    forecastsLoading,
 });
