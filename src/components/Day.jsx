@@ -19,7 +19,6 @@ class Day extends Component {
         } = this.props;
 
         return (
-            <section>
                 <div className="c-day day@small day@medium">
                 
                 
@@ -35,7 +34,8 @@ class Day extends Component {
                                     Weather:
                                 </dt>
                                 <dd>
-                                    {weather[0].main}
+                                    {weather[0].main === "Clear" && <div>Clear <br/><small className="notice">! No weather icon for clear so using thunder</small></div>}
+                                    {weather[0].main !== "Clear" && <div>{weather[0].main}</div>}
                                 </dd>
                                 <dt>
                                     Description:
@@ -69,8 +69,6 @@ class Day extends Component {
                             </div>}
                         </Col>
                     </div>
-
-            </section>
         )
     }
 }

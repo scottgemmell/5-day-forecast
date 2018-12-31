@@ -42,7 +42,7 @@ class Forecasts extends Component {
         }
 
         return (
-            <div>
+            <section>
                 <h2 className="section-title">
                     Forecasts
                     {" "}<em>for</em>{" "}
@@ -55,7 +55,7 @@ class Forecasts extends Component {
                         return <Day key={i} idx={i+1} item={item} />
                     })}
                 </div>
-            </div>
+            </section>
         )
     }
 }

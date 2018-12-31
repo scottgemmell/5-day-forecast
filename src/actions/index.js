@@ -5,6 +5,8 @@ import {
 	RESET,
 	SET_OPEN_DATA,
     FORECASTS_SUCCESS,
+    FORECASTS_FAILURE,
+    FORECASTS_LOADING,
 } from "../constants";
 
 export const cityUpdated = city => ({
@@ -28,14 +30,14 @@ export const setOpenData = data => ({
 
 export function forecastsFailure(bool) {
     return {
-        type: 'FORECASTS_FAILURE',
+        type: FORECASTS_FAILURE,
         failure: bool
     };
 }
 
 export function forecastsLoading(bool) {
     return {
-        type: 'FORECASTS_LOADING',
+        type: FORECASTS_LOADING,
         loading: bool
     };
 }
@@ -67,29 +69,3 @@ export const getForecastData = ({city, country}) => (dispatch) => {
             }
         );
 };
-
-// export function getForecastData({city, country}) {
-//     return (dispatch) => {
-// 		dispatch(forecastsLoading(true));
-
-//         fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city},${country}&units=metric&appid=${API_KEY}`)
-//             .then((response) => {
-//                 if (!response.ok) {
-//                     throw Error(response.statusText);
-//                     //
-//                 }
-//                 dispatch(forecastsLoading(false));
-//                 dispatch(forecastsFailure(false));
-//                 return response;
-//             })
-//             .then((response) => response.json())
-//             .then((forecasts) => dispatch(forecastsSuccess(forecasts)))
-//             .catch(
-//                 () => { 
-//                     //dispatch(forecastsLoading(false));
-//                     dispatch(forecastsFailure(true));
-//                 }
-//             );
-//     };
-// }
-
