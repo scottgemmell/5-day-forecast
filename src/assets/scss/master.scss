@@ -14,8 +14,16 @@ code {
 }
 
 
-.app {
+$bgcolor: #0cc;
 
+.container {
+    padding-left: 20px;
+    padding-right: 20px;
+    min-width: 300px;
+}
+
+.app {
+    margin: 20px auto;
     .app__header {
         margin-bottom: 20px;
         padding-bottom: 20px;
@@ -26,6 +34,11 @@ code {
 }
 
 .slab {
+    display: block;
+    float: left;
+    width: 100%;
+    clear: both;
+
     padding: 20px;
 
     .slab__head {
@@ -34,6 +47,7 @@ code {
         text-align: center;
 
         img {
+            background-color: #e7e7e7;
             width: 200px;
             height: 200px;
         }
@@ -44,21 +58,16 @@ code {
     }
 }
 
-.u-bgcolor-a {
-    background: #f0f0f0;
+dl {
+    dd {
+        margin-bottom: 10px;
+    }
 }
+
+// .u-bgcolor-a {
+//     background: #eaeaea;
+// }
 
 .u-bgcolor-b {
 background: #e0e0e0;
-} 
-
-
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
