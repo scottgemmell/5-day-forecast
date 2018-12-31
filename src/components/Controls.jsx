@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import { Grid, Form, Button } from 'react-bootstrap';
+import { Alert, Grid, Form, Button } from 'react-bootstrap';
 import FieldInput from "./FieldInput";
 
 class Controls extends Component {
 
     render() {
 
-        const { handleCityBlur, handleCityChange, handleCountryBlur, handleCountryChange, handleSubmit } = this.props;
+        const { handleCityBlur, handleCityChange, handleCountryBlur, handleCountryChange, handleSubmit, handleReset, hasErrors } = this.props;
         return (
         
             <header className="header">
@@ -49,13 +49,23 @@ class Controls extends Component {
                                 </div>
                                 <div className="c-controls__actions">
                                     <Button 
+                                        type="reset" 
+                                        onClick={handleReset}
+                                    >
+                                        Reset
+                                    </Button>
+                                    {" "}
+                                    <Button 
                                         bsStyle="primary"
+                                        disabled={!hasErrors}
                                         type="submit" 
                                     >
                                         Get 5-day forecast
                                     </Button>
                                 </div>
-                              
+                                {!hasErrors && <Alert bsStyle="info" bsClass="c-controls__alert alert">
+                                    Please enter a <strong>City</strong> and a <strong>Country</strong>
+                                </Alert>}
                             </Form>
                         </div>
                         

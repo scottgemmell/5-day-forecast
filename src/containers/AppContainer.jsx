@@ -12,6 +12,7 @@ class AppContainer extends Component {
 
         this.handleCityChange = this.handleCityChange.bind(this);
         this.handleCountryChange = this.handleCountryChange.bind(this);
+        this.handleReset = this.handleReset.bind(this);
     }
 
 	handleCityChange(e) {
@@ -28,6 +29,11 @@ class AppContainer extends Component {
         countryUpdated({ name, value });
     }
 
+    handleReset() {
+		const { reset } = this.props;
+        reset();
+    }
+
     getForecasts = (e) => {
         e.preventDefault();
         //console.log(this.state);
@@ -37,7 +43,10 @@ class AppContainer extends Component {
     }
     
     render() {
-        const { data, forecastsFailure } = this.props;
+        const { city, country, data, forecastsFailure } = this.props;
+        //const { city } = data;
+        //console.log("data", { data });
+
         
 
         return (
@@ -47,8 +56,9 @@ class AppContainer extends Component {
                     handleCountryChange={this.handleCountryChange} 
                     handleCityBlur={this.handleCityChange} 
                     handleCountryBlur={this.handleCountryChange} 
-                   
+                    handleReset={this.handleReset} 
                     handleSubmit={this.getForecasts} 
+                    hasErrors={city && country} 
                 />
                 <Grid>
                     {(data !== "") && <Forecasts />}
