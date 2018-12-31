@@ -5,6 +5,19 @@ import spinner from "../assets/svgs/spinner.svg";
 
 class Forecasts extends Component {
 
+    constructor(props){
+        super(props);
+
+        this.filterByDays = this.filterByDays.bind(this);
+    }
+
+    filterByDays = data => {
+        return (
+            data.filter((_k, v) => {
+                return (v % 8 === 0) ? true : false;
+            })
+        );
+    };
 
     render() {
         const { 
@@ -16,6 +29,7 @@ class Forecasts extends Component {
             forecastsLoading,
             forecastsFailure
         } = this.props;
+        const filteredList = this.filterByDays(list);
 
         
 
@@ -36,7 +50,7 @@ class Forecasts extends Component {
                 </h2>
 
                 <div className="forecasts l-panels l-panels@small l-panels@medium l-panels@large">
-                    {list
+                    {filteredList
                         .map((item, i) => {
                         return <Day key={i} idx={i+1} item={item} />
                     })}
