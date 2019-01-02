@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import Day from "./Day";
 import spinner from "../assets/svgs/spinner.svg";
 
-class Forecasts extends Component {
+export class Forecasts extends Component {
 
 	constructor(props){
 		super(props);
@@ -41,15 +41,13 @@ class Forecasts extends Component {
 		return (
 			<section>
 				<h2 className="section-title">
-					Forecasts
-					{" "}<em>for</em>{" "}
-					{name}
+					Forecasts <em>for</em> {name}
 				</h2>
 
 				<div className="forecasts l-panels l-panels@small l-panels@medium l-panels@large">
 					{filteredList
 						.map((item, i) => {
-							return <Day key={i} item={item} />
+							return <Day key={i} item={item} />;
 						})}
 				</div>
 			</section>
