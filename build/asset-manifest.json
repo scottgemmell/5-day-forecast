@@ -1,0 +1,19 @@
+{
+  "main.css": "/5-day-forecast/static/css/main.6e1b2ad8.chunk.css",
+  "main.js": "/5-day-forecast/static/js/main.3d9d88e6.chunk.js",
+  "main.js.map": "/5-day-forecast/static/js/main.3d9d88e6.chunk.js.map",
+  "static/js/1.ebb4d19e.chunk.js": "/5-day-forecast/static/js/1.ebb4d19e.chunk.js",
+  "static/js/1.ebb4d19e.chunk.js.map": "/5-day-forecast/static/js/1.ebb4d19e.chunk.js.map",
+  "runtime~main.js": "/5-day-forecast/static/js/runtime~main.b1148621.js",
+  "runtime~main.js.map": "/5-day-forecast/static/js/runtime~main.b1148621.js.map",
+  "static/media/cloudy.svg": "/5-day-forecast/static/media/cloudy.ad789581.svg",
+  "static/media/day.svg": "/5-day-forecast/static/media/day.7f93fbdb.svg",
+  "static/media/thunder.svg": "/5-day-forecast/static/media/thunder.7142c78b.svg",
+  "static/media/snowy-6.svg": "/5-day-forecast/static/media/snowy-6.67d63a14.svg",
+  "static/media/spinner.svg": "/5-day-forecast/static/media/spinner.99d7ceaa.svg",
+  "static/media/rainy-5.svg": "/5-day-forecast/static/media/rainy-5.2bd23641.svg",
+  "static/css/main.6e1b2ad8.chunk.css.map": "/5-day-forecast/static/css/main.6e1b2ad8.chunk.css.map",
+  "index.html": "/5-day-forecast/index.html",
+  "precache-manifest.c0418cbfde4ebe7d113b4e8bf641e2ba.js": "/5-day-forecast/precache-manifest.c0418cbfde4ebe7d113b4e8bf641e2ba.js",
+  "service-worker.js": "/5-day-forecast/service-worker.js"
+}
