@@ -1,15 +1,15 @@
 self.__precacheManifest = [
   {
-    "revision": "2bd236411dc612e871d9c314239c3fa7",
-    "url": "/5-day-forecast/static/media/rainy-5.2bd23641.svg"
-  },
-  {
-    "revision": "3d9d88e67fe08630a222",
+    "revision": "b56877dd85dc580acc90",
     "url": "/5-day-forecast/static/css/main.6e1b2ad8.chunk.css"
   },
   {
-    "revision": "ebb4d19e292f5a970de0",
-    "url": "/5-day-forecast/static/js/1.ebb4d19e.chunk.js"
+    "revision": "b56877dd85dc580acc90",
+    "url": "/5-day-forecast/static/js/main.b56877dd.chunk.js"
+  },
+  {
+    "revision": "4270af2d59543fbea18c",
+    "url": "/5-day-forecast/static/js/1.4270af2d.chunk.js"
   },
   {
     "revision": "b1148621d49930b9cbe8",
@@ -20,8 +20,8 @@ self.__precacheManifest = [
     "url": "/5-day-forecast/static/media/cloudy.ad789581.svg"
   },
   {
-    "revision": "3d9d88e67fe08630a222",
-    "url": "/5-day-forecast/static/js/main.3d9d88e6.chunk.js"
+    "revision": "2bd236411dc612e871d9c314239c3fa7",
+    "url": "/5-day-forecast/static/media/rainy-5.2bd23641.svg"
   },
   {
     "revision": "7f93fbdb8a9d02fe414c0a0119b77bd4",
@@ -40,7 +40,7 @@ self.__precacheManifest = [
     "url": "/5-day-forecast/static/media/spinner.99d7ceaa.svg"
   },
   {
-    "revision": "54537bb4d0735b7442685f617acbbc32",
+    "revision": "2baf3a7ff75a437d0bbe415050c4fb49",
     "url": "/5-day-forecast/index.html"
   }
 ];

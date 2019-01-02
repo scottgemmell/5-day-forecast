@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/5-day-forecast/precache-manifest.c0418cbfde4ebe7d113b4e8bf641e2ba.js"
+  "/5-day-forecast/precache-manifest.39fa7e7f1b71e3045fc8e5030ef41feb.js"
 );
 
 workbox.clientsClaim();
