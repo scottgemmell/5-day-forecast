@@ -232,12 +232,16 @@ body {
     .form-inline .form-group {
         margin: 0 10px 10px;
     }
-    
+
     .c-controls__inputs,
     .c-controls__actions {
         display: flex;
         justify-content: center;
-    }
+	}
+	
+	.c-controls__inputs .c-controls__input {
+		padding-right: 12px;
+	}
 
     .c-controls__actions {
         button {

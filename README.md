@@ -1,8 +1,8 @@
 # 5-day-forecast
 A weather forecast app
 
-@TODO: Tests. Event and Redux based.
-@TODO: Refactor Error scenarios. Consider a `<ForecastsNoResults />` component
-@TODO: Do not show _"Please enter a City and a Country"_ on load.
-@TODO: Use icons provided by OpenWeather API (only just noticed they are available)
-@TODO: Use Routes.
+__@TODO__: Tests. Event and Redux based.
+__@TODO__: Refactor Error scenarios. Consider a `<ForecastsNoResults />` component.
+__@TODO__: Do not show _"Please enter a City and a Country"_ on load.
+__@TODO__: Use icons provided by OpenWeather API (only just noticed they are available).
+__@TODO__: Use Routes to show a more detailed information page.
