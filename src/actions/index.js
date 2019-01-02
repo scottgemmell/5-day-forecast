@@ -4,9 +4,9 @@ import {
 	COUNTRY_UPDATED, 
 	RESET,
 	SET_OPEN_DATA,
-    FORECASTS_SUCCESS,
-    FORECASTS_FAILURE,
-    FORECASTS_LOADING,
+	FORECASTS_SUCCESS,
+	FORECASTS_FAILURE,
+	FORECASTS_LOADING,
 } from "../constants";
 
 export const cityUpdated = city => ({
@@ -28,44 +28,38 @@ export const setOpenData = data => ({
 	payload: data
 });
 
-export function forecastsFailure(bool) {
-    return {
-        type: FORECASTS_FAILURE,
-        failure: bool
-    };
-}
+export const forecastsFailure = bool => ({
+	type: FORECASTS_FAILURE,
+	failure: bool
+});
 
-export function forecastsLoading(bool) {
-    return {
-        type: FORECASTS_LOADING,
-        loading: bool
-    };
-}
+export const forecastsLoading = bool => ({
+	type: FORECASTS_LOADING,
+	loading: bool
+});
 
-export function forecastsSuccess(forecasts) {
-    return {
-        type: FORECASTS_SUCCESS,
-        forecasts
-    };
-}
+export const forecastsSuccess = forecasts => ({ 
+	type: FORECASTS_SUCCESS,
+	forecasts
+});
 
 export const getForecastData = ({city, country}) => (dispatch) => {
-    dispatch(forecastsLoading(true));
+	dispatch(forecastsLoading(true));
 
-    fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city},${country}&units=metric&appid=${API_KEY}`)
-        .then((response) => {
-            if (!response.ok) {
-                throw Error(response.statusText);
-            }
-            dispatch(forecastsLoading(false));
-            dispatch(forecastsFailure(false));
-            return response;
-        })
-        .then((response) => response.json())
-        .then((forecasts) => dispatch(forecastsSuccess(forecasts)))
-        .catch(
-            () => {
-                dispatch(forecastsFailure(true));
-            }
-        );
+	fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city},${country}&units=metric&appid=${API_KEY}`)
+		.then((response) => {
+			if (!response.ok) {
+				throw Error(response.statusText);
+			}
+			dispatch(forecastsLoading(false));
+			dispatch(forecastsFailure(false));
+			return response;
+		})
+		.then((response) => response.json())
+		.then((forecasts) => dispatch(forecastsSuccess(forecasts)))
+		.catch(
+			() => {
+				dispatch(forecastsFailure(true));
+			}
+		);
 };
