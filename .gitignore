@@ -8,6 +8,8 @@
 # testing
 /coverage
 
+# production
+/build
 
 # misc
 .DS_Store
@@ -22,6 +24,3 @@ yarn-error.log*
 
 #sg
 package-lock.json
-
-# production
-# /build
