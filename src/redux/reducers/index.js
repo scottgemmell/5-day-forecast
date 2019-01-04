@@ -1,8 +1,5 @@
 import { combineReducers } from "redux";
-import { 
-	CITY_UPDATED, 
-	COUNTRY_UPDATED, 
-	RESET,
+import {
     FORECASTS_SUCCESS,
     FORECASTS_FAILURE,
     FORECASTS_LOADING,
@@ -12,23 +9,6 @@ import defaultState from "../../store/initialStates.json";
 const setForecastsReducer = (state = defaultState, action) => {
 
     switch (action.type) {
-        case CITY_UPDATED:
-            return {
-                ...state,
-                [action.payload.name]: action.payload.value,
-            };
-        case COUNTRY_UPDATED:
-            return {
-                ...state,
-                [action.payload.name]: action.payload.value,
-            };
-        case RESET: 
-            return {
-                ...state,
-                city: "",
-                country: "",
-                data: "",
-            };
         case FORECASTS_SUCCESS:
             return {
                 ...state,

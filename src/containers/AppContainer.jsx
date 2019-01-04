@@ -1,87 +1,47 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { Alert, Grid } from "react-bootstrap";
+import { Grid } from "react-bootstrap";
 import Controls from "../components/Controls.jsx";
-import { cityUpdated, countryUpdated, reset, getForecastData } from "../redux/actions";
+import { getForecastData } from "../redux/actions";
 import Forecasts from "../components/Forecasts.jsx";
 
 class AppContainer extends Component {
 
-    constructor(props) {
-        super(props);
-        this.handleCityChange = this.handleCityChange.bind(this);
-        this.handleCountryChange = this.handleCountryChange.bind(this);
-        this.handleReset = this.handleReset.bind(this);
-    }
-
-	handleCityChange(e) {
-        const { cityUpdated } = this.props;
-        const { name, value } = e.target;
-        cityUpdated({ name, value });
-    }
- 
-    handleCountryChange(e) {
-		const { countryUpdated } = this.props;
-        const { name, value } = e.target;
-        countryUpdated({ name, value });
-    }
-
-    handleReset() {
-		const { reset } = this.props;
-        reset();
-    }
-
-    getForecasts = (e) => {
-        e.preventDefault();
-        const { getForecastData, city, country } = this.props;
-        getForecastData({city, country});
-    }
+	getForecasts = (e) => {
+		e.preventDefault();
+		const { getForecastData } = this.props;
+		getForecastData();
+	}
     
-    render() {
-        const { city, country, data, forecastsFailure } = this.props;
+	render() {
+		const { data } = this.props;
 
-        return (
-            <div className="app">
-                <Controls 
-                    handleCityChange={this.handleCityChange} 
-                    handleCountryChange={this.handleCountryChange} 
-                    handleCityBlur={this.handleCityChange} 
-                    handleCountryBlur={this.handleCountryChange} 
-                    handleReset={this.handleReset} 
-                    handleSubmit={this.getForecasts} 
-                    hasErrors={city && country} 
-                />
-                <Grid>
-                    {(data !== "") && <Forecasts />}
-
-                    {(forecastsFailure === true) && 
-                    <div>
-                        <h2 className="section-title">Error :(</h2>
-                        <Alert bsStyle="danger" bsClass="c-controls__alert alert">
-                            Invalid <strong>City</strong> and/or <strong>Country</strong>
-                        </Alert>
-                    </div>}
-                </Grid>
-                
-            </div>
-        );
-    }
+		return (
+			<div className="app">
+				<Controls 
+					handleSubmit={this.getForecasts}
+				/>
+				<Grid>
+					{(data !== "") && <Forecasts />}
+				</Grid>
+			</div>
+		);
+	}
 }
 
+AppContainer.propTypes = {
+	getForecastData: PropTypes.func,
+	data: PropTypes.object,
+};
+
 const mapStateToProps = (state) => ({
-    city: state.forecasts.city,
-    country: state.forecasts.country,
-    data: state.forecasts.data,
-    forecastsFailure: state.forecastsFailure,
-    forecastsLoading: state.forecastsLoading
+	data: state.forecasts.data,
 });
 
 export default connect(
-    mapStateToProps,
-    {
-        cityUpdated,
-        countryUpdated,
-        reset,
-        getForecastData,
-    },
+	mapStateToProps,
+	{
+		getForecastData,
+	},
 )(AppContainer);
