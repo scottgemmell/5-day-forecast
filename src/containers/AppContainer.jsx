@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Alert, Grid } from 'react-bootstrap';
+import { Alert, Grid } from "react-bootstrap";
 import Controls from "../components/Controls.jsx";
-import { cityUpdated, countryUpdated, reset, getForecastData } from "../actions";
+import { cityUpdated, countryUpdated, reset, getForecastData } from "../redux/actions";
 import Forecasts from "../components/Forecasts.jsx";
 
 class AppContainer extends Component {

@@ -7,7 +7,7 @@ import {
 	FORECASTS_SUCCESS,
 	FORECASTS_FAILURE,
 	FORECASTS_LOADING,
-} from "../constants";
+} from "../../constants";
 
 export const cityUpdated = city => ({
 	type: CITY_UPDATED,

@@ -6,8 +6,8 @@ import {
     FORECASTS_SUCCESS,
     FORECASTS_FAILURE,
     FORECASTS_LOADING,
-} from "../constants";
-import defaultState from "../store/initialStates.json";
+} from "../../constants";
+import defaultState from "../../store/initialStates.json";
 
 const setForecastsReducer = (state = defaultState, action) => {
 
