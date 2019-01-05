@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { getForecastData } from "../redux/actions";
 import { Grid } from "react-bootstrap";
 import Controls from "../components/Controls.jsx";
-import { getForecastData } from "../redux/actions";
 import Forecasts from "../components/Forecasts.jsx";
 
 class AppContainer extends Component {
