@@ -13,12 +13,10 @@ export const apiMiddleware = ({ dispatch }) => next => action => {
 				// }
 				// return response;
 				if (response.status >= 200 && response.status < 300) {
-					return response
+					return response;
 				} else {
-					throw Error({
-						message: response.statusText, 
-						status: response.status
-					});
+					// @TODO: Not found / Failed to fetch
+					throw Error(response.statusText);
 				}
 			})
 			.then( response => response.json())
