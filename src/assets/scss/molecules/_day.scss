@@ -1,0 +1,54 @@
+.c-day {
+    display: block;
+    float: left;
+    width: 100%;
+    clear: both;
+    margin-bottom: 20px;
+    padding: 15px 0;
+
+    background-color: #e7e7e7;
+
+    dl {
+        dd {
+            margin-bottom: 10px;
+        }
+    }
+    
+
+    .c-day__head {
+        // padding: 20px;
+        // margin-right: 20px;
+        text-align: center;
+
+        img {
+            width: 140px;
+            height: 140px;
+        }
+    }
+
+    .notice {
+        color: #559ef1;
+        font-style: italic;
+        font-weight: bold;
+        font-size: 85%;
+    }
+
+    .a-temp {
+        font-weight: bold;
+    }
+    .a-temp--cold {
+        color: blue;
+    }
+    .a-temp--average {
+        color: green;
+    }
+    .a-temp--hot {
+        color: red;
+    }
+}
+
+@include responsive-min($small) {
+    .c-day\@small {
+        margin-bottom: 0;
+    }
+}

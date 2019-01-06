@@ -1,0 +1,39 @@
+body {
+    // background-color: #f0f0f0;
+    // font-family: sans-serif;
+    // line-height: 1.4;
+    // padding: 40px 20px;
+    // position: relative;
+    
+    &:before {
+        padding: 10px 20px;
+        color:#aaa;
+        position: absolute;
+        
+        top: 0;
+        left: 0;
+        content: "XSmall";
+        
+    }
+    
+    @include responsive-between($small, $small-max) {
+        &:before {
+            content: "Small";
+        }
+    }
+        @include responsive-between($medium, $medium-max) {
+            &:before {
+            content: "Medium";
+        }
+    }
+        @include responsive-between($large, $large-max) {
+            &:before {
+            content: "Large";
+            }
+    }
+        @include responsive-min($xlarge) {
+            &:before {
+            content: "XLarge";
+        }
+    }
+}

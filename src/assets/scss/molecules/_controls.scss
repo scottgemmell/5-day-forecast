@@ -1,0 +1,36 @@
+.c-controls {
+
+    form {
+        display: inline-block;
+        margin-bottom: 0;
+    }
+
+    .form-inline .form-group {
+        margin: 0 10px 10px;
+    }
+
+    .c-controls__inputs,
+    .c-controls__actions {
+        display: flex;
+        justify-content: center;
+	}
+	
+	.c-controls__inputs .c-controls__input {
+		padding-right: 12px;
+	}
+
+    .c-controls__actions {
+        button {
+            margin: 0 10px;
+        }
+    }
+
+    .c-controls__alert {
+        margin: 15px 0 0;
+    }
+
+    .c-controls__input--country {
+        width: 80px!important;
+    }
+
+}

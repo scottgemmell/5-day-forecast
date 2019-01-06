@@ -1,0 +1,23 @@
+.l-panels {
+    grid-gap: 20px;
+}
+
+@include responsive-min($small){
+    .l-panels\@small {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-auto-flow: dense;
+    }
+}
+
+@include responsive-min($medium){
+    .l-panels\@medium {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@include responsive-min($large){
+    .l-panels\@large {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
