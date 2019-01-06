@@ -1,20 +1,25 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-//import { getForecastData } from "../redux/actions";
-import { Grid } from "react-bootstrap";
+import { Alert, Grid } from "react-bootstrap";
 import Controls from "../components/Controls.jsx";
 import Forecasts from "../components/Forecasts.jsx";
 
 class AppContainer extends Component {
 	render() {
-		const { data } = this.props;
+		const { notification } = this.props;
 
 		return (
 			<div className="app">
 				<Controls />
 				<Grid>
-					{(data !== "") && <Forecasts />}
+					{(notification.message === "") && <Forecasts />}
+					{(notification.message !== "") && <div>
+                        <h2 className="section-title">Error :(</h2>
+                        <Alert bsStyle="danger" bsClass="c-controls__alert alert">
+                            Invalid <strong>City</strong> and/or <strong>Country</strong>.
+                        </Alert>
+                    </div>}
 				</Grid>
 			</div>
 		);
@@ -22,11 +27,11 @@ class AppContainer extends Component {
 }
 
 AppContainer.propTypes = {
-	data: PropTypes.object,
+	notification: PropTypes.object,
 };
 
 const mapStateToProps = (state) => ({
-	data: state.forecasts,
+	notification: state.notification,
 });
 
 export default connect(

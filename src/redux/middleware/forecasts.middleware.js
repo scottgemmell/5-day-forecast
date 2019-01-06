@@ -27,11 +27,16 @@ export const forecastsMiddleware = () => (next) => (action) => {
 	
 	case `${FORECASTS} ${API_SUCCESS}`:
 		next(setForecasts({ forecasts: action.payload }));
+		next(setNotification({ message: "", feature: FORECASTS }));
 		next(setLoader({ state: false, feature: FORECASTS }));
 		break;
 
 	case `${FORECASTS} ${API_ERROR}`:
-		next(setNotification({ message: action.payload.message, feature: FORECASTS }));
+		next(setForecasts({ forecasts: {} }));
+		next(setNotification({ 
+			message: action.payload.message, 
+			feature: FORECASTS 
+		}));
 		next(setLoader({ state: false, feature: FORECASTS }));
 		break;
 
