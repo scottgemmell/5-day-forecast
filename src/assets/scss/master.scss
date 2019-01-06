@@ -168,11 +168,11 @@ body {
     }
 }
 
-// @include responsive-min($small) {
-//     .c-day\@small {
-//         background-color: #c00;
-//     }
-// }
+@include responsive-min($small) {
+    .c-day\@small {
+        margin-bottom: 0;
+    }
+}
 // @include responsive-min($medium) {
 //     .c-day\@medium {
 //         background-color: #0c0;

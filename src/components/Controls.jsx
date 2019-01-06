@@ -10,28 +10,14 @@ class Controls extends Component {
 	constructor(props) {
 		super(props);
 		
-		// Create the ref
 		this.cityInput = React.createRef();
 		this.countryInput = React.createRef();
-		// this.state = {
-		// 	city: ""
-		// };
 
 		this.getForecasts = this.getForecasts.bind(this);
-		this.handleCityChange = this.handleCityChange.bind(this);
-		//this.handleCountryChange = this.handleCountryChange.bind(this);
 	}
 
-	handleCityChange(e) {
-		//const { cityUpdated } = this.props;
-		const { name, value } = e.target;
-		//cityUpdated({ name, value });
-	}
-
-	// handleCountryChange(e) {
-	// 	const { countryUpdated } = this.props;
-	// 	const { name, value } = e.target;
-	// 	countryUpdated({ name, value });
+	// componentDidMount() {
+	// 	this.cityInput.current.focus();
 	// }
 
 	getForecasts = (e) => {
@@ -47,7 +33,7 @@ class Controls extends Component {
 
 	render(){
 
-		console.log(this.cityInput);
+		console.log("ref", this.cityInput);
 
 		return (
 			<header className="header">
@@ -59,28 +45,29 @@ class Controls extends Component {
 						<div className="c-controls">
 							<Form inline onSubmit={this.getForecasts}>
 								<div className="c-controls__inputs">
-									<input 
-										ref={this.cityInput}
+									<FieldInput   
+										inputRef={this.cityInput} 
 										id="fieldCity" 
 										name="city"
-										// placeholderText="Glasgow" 
-										// title="Enter a City"
-										// handleBlur={handleCityBlur}
-										// handleChange={handleCityChange}
-										// hideLabel={true} 
-										// modifier="c-controls__input c-controls__input--city"
+										//value={this.cityInput} 
+										placeholderText="Glasgow" 
+										title="Enter a City"
+										//handleBlur={handleCityBlur}
+										//handleChange={handleCityChange}
+										hideLabel={true} 
+										modifier="c-controls__input c-controls__input--city"
 									/>
 									{" "}
-									<input 
-										ref={this.countryInput}
+									<FieldInput 
+										inputRef={this.countryInput}
 										id="fieldCountry" 
 										name="country"
-										// placeholderText="Glasgow" 
-										// title="Enter a City"
-										// handleBlur={handleCityBlur}
-										// handleChange={handleCityChange}
-										// hideLabel={true} 
-										// modifier="c-controls__input c-controls__input--city"
+										placeholderText="UK" 
+										title="Enter a Country"
+										//handleBlur={handleCityBlur}
+										//handleChange={handleCityChange}
+										hideLabel={true} 
+										modifier="c-controls__input c-controls__input--country"
 									/>
 								</div>
 								<div className="c-controls__actions">

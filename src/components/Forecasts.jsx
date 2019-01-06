@@ -27,7 +27,7 @@ export class Forecasts extends Component {
 	};
 
 	render() {
-		const { forecasts, forecasts: { city }, forecasts: { list }, loading } = this.props;
+		const { forecasts, forecasts: { list }, loading } = this.props;
 
 		// const { id } = city;
 		// console.log("city", city);
@@ -55,7 +55,7 @@ export class Forecasts extends Component {
 							const { dt_txt, weather, main: { temp } } = item;
 
 							return (
-								<div key={i} className="c-day day@small day@medium">
+								<div key={i} className="c-day c-day@small c-day@medium">
 									<Col xs={6} className="c-day__body">
 										<dl>
 											<dt>
