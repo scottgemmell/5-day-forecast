@@ -12,9 +12,10 @@ class Controls extends Component {
 		
 		// Create the ref
 		this.cityInput = React.createRef();
-		this.state = {
-			city: ""
-		};
+		this.countryInput = React.createRef();
+		// this.state = {
+		// 	city: ""
+		// };
 
 		this.getForecasts = this.getForecasts.bind(this);
 		this.handleCityChange = this.handleCityChange.bind(this);
@@ -40,7 +41,7 @@ class Controls extends Component {
 
 		fetchForecasts({ 
 			city: this.cityInput.current.value, 
-			country: "UK" 
+			country: this.cityInput.current.value, 
 		});
 	}
 
@@ -62,6 +63,18 @@ class Controls extends Component {
 										ref={this.cityInput}
 										id="fieldCity" 
 										name="city"
+										// placeholderText="Glasgow" 
+										// title="Enter a City"
+										// handleBlur={handleCityBlur}
+										// handleChange={handleCityChange}
+										// hideLabel={true} 
+										// modifier="c-controls__input c-controls__input--city"
+									/>
+									{" "}
+									<input 
+										ref={this.countryInput}
+										id="fieldCountry" 
+										name="country"
 										// placeholderText="Glasgow" 
 										// title="Enter a City"
 										// handleBlur={handleCityBlur}
