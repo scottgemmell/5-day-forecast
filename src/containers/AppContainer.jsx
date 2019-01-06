@@ -15,11 +15,11 @@ class AppContainer extends Component {
 				<Grid>
 					{(notification.message === "") && <Forecasts />}
 					{(notification.message !== "") && <div>
-                        <h2 className="section-title">Error :(</h2>
-                        <Alert bsStyle="danger" bsClass="c-controls__alert alert">
-                            Invalid <strong>City</strong> and/or <strong>Country</strong>.
-                        </Alert>
-                    </div>}
+						<h2 className="section-title">Error :(</h2>
+						<Alert bsStyle="danger" bsClass="c-controls__alert alert">
+                            Invalid <strong>City</strong> and/or <strong>Country</strong>. [{notification.message}]
+						</Alert>
+					</div>}
 				</Grid>
 			</div>
 		);

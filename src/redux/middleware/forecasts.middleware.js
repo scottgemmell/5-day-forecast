@@ -32,9 +32,10 @@ export const forecastsMiddleware = () => (next) => (action) => {
 		break;
 
 	case `${FORECASTS} ${API_ERROR}`:
-		next(setForecasts({ forecasts: {} }));
+		next(setForecasts({ forecasts: action.payload }));
 		next(setNotification({ 
 			message: action.payload.message, 
+			// status: action.payload.status, 
 			feature: FORECASTS 
 		}));
 		next(setLoader({ state: false, feature: FORECASTS }));

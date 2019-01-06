@@ -10,7 +10,8 @@ export const notificationReducer = (state = initState, action) => {
 	case action.type.includes(SET_NOTIFICATION):
 		return { 
 			...state, 
-			message: action.payload
+			message: action.payload,
+			// status: 400,
 		};
 	default:
 		return state;

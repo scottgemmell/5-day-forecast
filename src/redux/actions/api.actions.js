@@ -16,8 +16,12 @@ export const apiSuccess = (response, feature) => ({
 	meta: { feature }
 });
 
-export const apiError = (error, feature) => ({
-	type: `${feature} ${API_ERROR}`,
-	payload: error,
-	meta: { feature }
-});
+export const apiError = ({ error, feature }) => {
+	console.log(error);
+
+	return {
+		type: `${feature} ${API_ERROR}`,
+		payload: error,
+		meta: { feature }
+	}
+};
