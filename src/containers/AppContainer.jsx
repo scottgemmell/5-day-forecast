@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Alert, Grid } from "react-bootstrap";
-import Controls from "../components/Controls.jsx";
-import Forecasts from "../components/Forecasts.jsx";
+import { Controls, Forecasts } from "../components/";
 
 class AppContainer extends Component {
 	render() {
@@ -13,13 +12,14 @@ class AppContainer extends Component {
 			<div className="app">
 				<Controls />
 				<Grid>
-					{(notification.message === "") && <Forecasts />}
-					{(notification.message !== "") && <div>
-						<h2 className="section-title">Error :(</h2>
-						<Alert bsStyle="danger" bsClass="c-controls__alert alert">
-                            Invalid <strong>City</strong> and/or <strong>Country</strong>. [{notification.message}]
-						</Alert>
-					</div>}
+					{(notification.message === "") 
+						? <Forecasts />
+						: <div>
+							<h2 className="section-title">Error :(</h2>
+							<Alert bsStyle="danger" bsClass="c-controls__alert alert">
+								Invalid <strong>City</strong> and/or <strong>Country</strong>. [{notification.message}]
+							</Alert>
+						</div>}
 				</Grid>
 			</div>
 		);

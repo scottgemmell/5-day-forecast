@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { fetchForecasts } from "../redux/actions/forecasts.actions";
 import { Grid, Form, Button } from "react-bootstrap";
-import FieldInput from "./FieldInput";
+import { FieldInput } from "../components";
 
 class Controls extends Component {    
 
@@ -13,9 +13,9 @@ class Controls extends Component {
 		this.getForecasts = this.getForecasts.bind(this);
 	}
 
-	// componentDidMount() {
-	// 	this.cityInput.current.focus();
-	// }
+	componentDidMount() {
+		this.cityInput.focus();
+	}
 
 	getForecasts = (e) => {
 		e.preventDefault();
