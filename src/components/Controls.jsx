@@ -9,9 +9,6 @@ class Controls extends Component {
 
 	constructor(props) {
 		super(props);
-		
-		this.cityInput = React.createRef();
-		this.countryInput = React.createRef();
 
 		this.getForecasts = this.getForecasts.bind(this);
 	}
@@ -26,15 +23,12 @@ class Controls extends Component {
 		const { fetchForecasts } = this.props;
 
 		fetchForecasts({ 
-			city: this.cityInput.current.value, 
-			country: this.cityInput.current.value, 
+			city: this.cityInput.value, 
+			country: this.countryInput.value, 
 		});
 	}
 
 	render(){
-
-		console.log("ref", this.cityInput);
-
 		return (
 			<header className="header">
 				<Grid>
@@ -46,7 +40,9 @@ class Controls extends Component {
 							<Form inline onSubmit={this.getForecasts}>
 								<div className="c-controls__inputs">
 									<FieldInput   
-										inputRef={this.cityInput} 
+										inputRef={input => {
+											this.cityInput = input;
+										}} 
 										id="fieldCity" 
 										name="city"
 										//value={this.cityInput} 
@@ -59,7 +55,9 @@ class Controls extends Component {
 									/>
 									{" "}
 									<FieldInput 
-										inputRef={this.countryInput}
+										inputRef={input => {
+											this.countryInput = input;
+										}} 
 										id="fieldCountry" 
 										name="country"
 										placeholderText="UK" 

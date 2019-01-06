@@ -15,10 +15,10 @@ export class Forecasts extends Component {
 
 	constructor(props){
 		super(props);
-		this.filterByDays = this.filterByDays.bind(this);
+		this.filterByDays = this._filterByDays.bind(this);
 	}
 
-	filterByDays = list => {
+	_filterByDays = list => {
 		return (
 			list.filter((_k, v) => {
 				return (v % 8 === 0) ? true : false;
@@ -29,10 +29,6 @@ export class Forecasts extends Component {
 	render() {
 		const { forecasts, forecasts: { list }, loading } = this.props;
 
-		// const { id } = city;
-		// console.log("city", city);
-		// console.log("id", id);
-
 		if (R.isEmpty(forecasts)) {
 			return <div></div>;
 		}
@@ -41,7 +37,7 @@ export class Forecasts extends Component {
 			return <div className="u-spinner"><img src={spinner} alt="Loading..." /></div>;
 		}
 
-		const filteredList = this.filterByDays(list);
+		const filteredList = this._filterByDays(list);
 
 		return (
 			<section>
