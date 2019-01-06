@@ -45,11 +45,8 @@ class Controls extends Component {
 										}} 
 										id="fieldCity" 
 										name="city"
-										//value={this.cityInput} 
 										placeholderText="Glasgow" 
 										title="Enter a City"
-										//handleBlur={handleCityBlur}
-										//handleChange={handleCityChange}
 										hideLabel={true} 
 										modifier="c-controls__input c-controls__input--city"
 									/>
@@ -62,8 +59,6 @@ class Controls extends Component {
 										name="country"
 										placeholderText="UK" 
 										title="Enter a Country"
-										//handleBlur={handleCityBlur}
-										//handleChange={handleCityChange}
 										hideLabel={true} 
 										modifier="c-controls__input c-controls__input--country"
 									/>
@@ -87,6 +82,7 @@ class Controls extends Component {
 
 Controls.propTypes = {
 	handleSubmit: PropTypes.func,
+	fetchForecasts: PropTypes.func,
 };
 
 export default connect(

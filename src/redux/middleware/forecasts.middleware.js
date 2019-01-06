@@ -13,7 +13,6 @@ export const forecastsMiddleware = () => (next) => (action) => {
 	switch(action.type) {
 	
 	case FETCH_FORECASTS:
-		//console.log("action: ", {action});
 		next(apiRequest({ 
 			body: null, 
 			method: "GET", 
@@ -34,6 +33,9 @@ export const forecastsMiddleware = () => (next) => (action) => {
 	case `${FORECASTS} ${API_ERROR}`:
 		next(setNotification({ message: action.payload.message, feature: FORECASTS }));
 		next(setLoader({ state: false, feature: FORECASTS }));
+		break;
+
+	default:
 		break;
 	}
 };
