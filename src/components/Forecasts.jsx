@@ -9,6 +9,7 @@ import rainyDay from "../assets/svgs/vendor/amcharts/animated/rainy-5.svg";
 import sunnyDay from "../assets/svgs/vendor/amcharts/animated/day.svg";
 import clearDay from "../assets/svgs/vendor/amcharts/animated/thunder.svg";
 import snowyDay from "../assets/svgs/vendor/amcharts/animated/snowy-6.svg";
+import * as R from "ramda";
 
 export class Forecasts extends Component {
 
@@ -17,39 +18,36 @@ export class Forecasts extends Component {
 		this.filterByDays = this.filterByDays.bind(this);
 	}
 
-	filterByDays = data => {
+	filterByDays = list => {
 		return (
-			data.filter((_k, v) => {
+			list.filter((_k, v) => {
 				return (v % 8 === 0) ? true : false;
 			})
 		);
 	};
 
 	render() {
-		const { 
-			forecasts: { 
-				list, 
-				city: { name }
-			},  
-			forecastsLoading,
-			forecastsFailure
-		} = this.props;
-		const filteredList = this.filterByDays(list);
+		const { forecasts, forecasts: { city }, forecasts: { list }, loading } = this.props;
 
-		if (forecastsFailure === true) {
+		// const { id } = city;
+		// console.log("city", city);
+		// console.log("id", id);
+
+		if (R.isEmpty(forecasts)) {
 			return <div></div>;
 		}
 
-		if (forecastsLoading === true) {
+		if (loading === true) {
 			return <div className="u-spinner"><img src={spinner} alt="Loading..." /></div>;
 		}
+
+		const filteredList = this.filterByDays(list);
 
 		return (
 			<section>
 				<h2 className="section-title">
-					Forecasts <em>for</em> {name}
+					Forecasts <em>for</em> {this.props.forecasts.city.name}
 				</h2>
-
 				<div className="forecasts l-panels l-panels@small l-panels@medium l-panels@large">
 					{filteredList
 						.map((item, i) => {
@@ -115,7 +113,7 @@ export class Forecasts extends Component {
 
 Forecasts.defaultProps = {
 	forecasts: {
-		list: [],
+		list: "",
 		city: {
 			name: "",
 		}
@@ -143,15 +141,14 @@ Forecasts.propTypes = {
 			name: PropTypes.string.isRequired,
 		}),
 	}),
-	forecastsLoading: PropTypes.bool,
-	forecastsFailure: PropTypes.bool,
-
+	loading: PropTypes.bool,
 };
 
 const mapStateToProps = (state) => ({
-	forecasts: state.forecasts.data,
-	forecastsFailure: state.forecastsFailure,
-	forecastsLoading: state.forecastsLoading
+	forecasts: state.forecasts,
+	// forecastsFailure: state.forecastsFailure,
+	// forecastsLoading: state.forecastsLoading
+	loading: state.ui.loading,
 });
 
 export default connect(

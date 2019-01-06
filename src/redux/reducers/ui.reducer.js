@@ -1,4 +1,4 @@
-import { SET_LOADER } from "../actions/ui.js";
+import { SET_LOADER } from "../actions/ui.actions.js";
 
 const initState = {
 	loading: false
@@ -11,4 +11,5 @@ export const uiReducer = (state = initState, action) => {
 		return { ...state, loading: action.payload };
 	default:
 		return state;
+	}
 };

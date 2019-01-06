@@ -1,17 +1,22 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { getForecastData } from "../redux/actions";
+//import { getForecastData } from "../redux/actions";
+import { fetchForecasts } from "../redux/actions/forecasts.actions";
 import { Grid } from "react-bootstrap";
 import Controls from "../components/Controls.jsx";
 import Forecasts from "../components/Forecasts.jsx";
 
 class AppContainer extends Component {
 
+	// componentDidMount(){
+
+	// }
+
 	getForecasts = (e) => {
 		e.preventDefault();
-		const { getForecastData } = this.props;
-		getForecastData();
+		const { fetchForecasts } = this.props;
+		fetchForecasts({payload: "https://api.openweathermap.org/data/2.5/forecast?q=Glasgow,UK&units=metric&appid=e9d4c67ad81c4d73f2ad231f6092f6c3"});
 	}
     
 	render() {
@@ -31,17 +36,16 @@ class AppContainer extends Component {
 }
 
 AppContainer.propTypes = {
-	getForecastData: PropTypes.func,
 	data: PropTypes.object,
 };
 
 const mapStateToProps = (state) => ({
-	data: state.forecasts.data,
+	data: state.forecasts,
 });
 
 export default connect(
 	mapStateToProps,
 	{
-		getForecastData,
+		fetchForecasts,
 	},
 )(AppContainer);

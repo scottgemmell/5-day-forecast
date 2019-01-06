@@ -1,6 +1,6 @@
-import { SET_FORECASTS } from "../actions/forecasts.js";
+import { SET_FORECASTS } from "../actions/forecasts.actions.js";
 
-const initState = []; // {}
+const initState = {};
 
 export const forecastsReducer = (forecasts = initState, action) => {
 	switch(action.type) {
