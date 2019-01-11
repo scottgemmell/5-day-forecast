@@ -1,19 +1,19 @@
 import React from "react";
-import { mount, shallow } from "enzyme";
+import { mount } from "enzyme";
 import { Controls } from "./Controls.jsx";
 
+const spy = jest.fn();
 const defaultProps = () => ({});
 const setup = (overrideProps = {}) => {
 	const props = Object.assign({}, defaultProps(), overrideProps);
-	const wrapper = shallow(<Controls {...props} />);
+	const wrapper = mount(<Controls fetchForecasts={spy} {...props} />);
 	return { wrapper, props };
 };
 
 describe("<Controls />", () => {
 
-	const { wrapper } = setup();
-
-	//console.log(wrapper.debug())
+	const { wrapper } = setup();	
+	const mockEvent = { preventDefault: jest.fn() };
 
 	it("html", () => {
 		expect(wrapper.find("header").hasClass("header")).toBe(true);
@@ -22,6 +22,7 @@ describe("<Controls />", () => {
 	});
 
 	it("City", () => {
+		expect(wrapper.instance().cityInput).toBeTruthy();
 		const cityProps = wrapper.find("FieldInput").at(0).props();
 		expect(cityProps.placeholderText).toBe("Glasgow");
 		expect(cityProps.title).toBe("Enter a City");
@@ -29,6 +30,7 @@ describe("<Controls />", () => {
 	});
 
 	it("Country", () => {
+		expect(wrapper.instance().countryInput).toBeTruthy();
 		const countryProps = wrapper.find("FieldInput").at(1).props();
 		expect(countryProps.placeholderText).toBe("UK");
 		expect(countryProps.title).toBe("Enter a Country");
@@ -41,8 +43,13 @@ describe("<Controls />", () => {
 	// });
 
 	it("Button", () => {
-		const submitBtn = wrapper.find("Button").last().props();
+		const submitBtn = wrapper.find("Button").last();
 		//expect(submitBtn.disabled).toBe(true);
-		expect(submitBtn.type).toBe("submit");
+		
+		submitBtn.simulate("submit", mockEvent);
+
+		//expect(event.preventDefault).toBeCalled();
+		expect(submitBtn.props().bsStyle).toBe("primary");
+		expect(submitBtn.props().type).toBe("submit");
 	});
 });

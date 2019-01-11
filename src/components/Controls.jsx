@@ -13,9 +13,9 @@ export class Controls extends Component {
 		this.getForecasts = this.getForecasts.bind(this);
 	}
 
-	// componentDidMount() {
-	// 	this.cityInput.focus();
-	// }
+	componentDidMount() {
+		this.cityInput.focus();
+	}
 
 	getForecasts = (e) => {
 		e.preventDefault();
