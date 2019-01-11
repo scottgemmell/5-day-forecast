@@ -5,7 +5,7 @@ import { fetchForecasts } from "../redux/actions/forecasts.actions";
 import { Grid, Form, Button } from "react-bootstrap";
 import { FieldInput } from "../components";
 
-class Controls extends Component {    
+export class Controls extends Component {    
 
 	constructor(props) {
 		super(props);
@@ -13,9 +13,9 @@ class Controls extends Component {
 		this.getForecasts = this.getForecasts.bind(this);
 	}
 
-	componentDidMount() {
-		this.cityInput.focus();
-	}
+	// componentDidMount() {
+	// 	this.cityInput.focus();
+	// }
 
 	getForecasts = (e) => {
 		e.preventDefault();
@@ -85,9 +85,4 @@ Controls.propTypes = {
 	fetchForecasts: PropTypes.func,
 };
 
-export default connect(
-	null,
-	{
-		fetchForecasts,
-	},
-)(Controls);
+export default connect(null, { fetchForecasts })(Controls);

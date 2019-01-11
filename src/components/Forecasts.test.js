@@ -3,7 +3,6 @@ import { Forecasts } from "./Forecasts";
 import { shallow } from "enzyme";
 import { forecasts } from "../data/fixtures.js";
 
-
 const defaultProps = () => ({});
 const setup = (overrideProps = {}) => {
 	const props = Object.assign({}, defaultProps(), overrideProps);
