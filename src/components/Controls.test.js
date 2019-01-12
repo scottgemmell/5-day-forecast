@@ -13,7 +13,7 @@ const setup = (overrideProps = {}) => {
 describe("<Controls />", () => {
 
 	const { wrapper } = setup();	
-	const mockEvent = { preventDefault: jest.fn() };
+	const mockEvent = { preventDefault: spy };
 
 	it("html", () => {
 		expect(wrapper.find("header").hasClass("header")).toBe(true);
