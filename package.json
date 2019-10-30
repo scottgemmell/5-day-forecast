@@ -1,6 +1,7 @@
 {
   "name": "5-day-forecast",
-  "homepage": "https://scottgemmell.io/5-day-forecast/",
+  "homepage": "https://weather.scottgemmell.com/",
+  "start_url": ".",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
