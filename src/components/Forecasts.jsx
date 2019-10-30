@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { connect } from "react-redux";
+import { connect, useSelector, useDispatch } from "react-redux";
 import spinner from "../assets/svgs/spinner.svg";
 import { Col } from "react-bootstrap";
 import { toDayOfTheWeek, getTempStatus } from "../utils/helper.js";
@@ -30,11 +30,13 @@ export class Forecasts extends Component {
 		const { forecasts, forecasts: { list }, loading } = this.props;
 
 		if (R.isEmpty(forecasts)) {
-			return <div></div>;
+			return (<div></div>);
 		}
 
 		if (loading === true) {
-			return <div className="u-spinner"><img src={spinner} alt="Loading..." /></div>;
+			return (<div className="u-spinner">
+				<img src={spinner} alt="Loading..." />
+			</div>);
 		}
 
 		const filteredList = this._filterByDays(list);
