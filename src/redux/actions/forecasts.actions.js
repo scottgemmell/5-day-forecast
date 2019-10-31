@@ -1,4 +1,4 @@
-export const FORECASTS = "[FORECASTS]";
+export const FORECASTS = "[Forecasts]";
 export const FETCH_FORECASTS = `${FORECASTS} FETCH`;
 export const SET_FORECASTS = `${FORECASTS} SET`;
 
@@ -12,5 +12,9 @@ export const fetchForecasts = ({ city, country }) => ({
 
 export const setForecasts = ({ forecasts }) => ({
 	type: SET_FORECASTS,
-	payload: forecasts
+	payload: forecasts,
+	meta: {
+		normalizeKey: true,
+		feature: "Forecasts"
+	}
 });

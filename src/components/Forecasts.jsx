@@ -13,19 +13,6 @@ import * as R from "ramda";
 
 export class Forecasts extends Component {
 
-	constructor(props){
-		super(props);
-		this.filterByDays = this._filterByDays.bind(this);
-	}
-
-	_filterByDays = list => {
-		return (
-			list.filter((_k, v) => {
-				return (v % 8 === 0) ? true : false;
-			})
-		);
-	};
-
 	render() {
 		const { forecasts, forecasts: { list }, loading } = this.props;
 
@@ -39,15 +26,13 @@ export class Forecasts extends Component {
 			</div>);
 		}
 
-		const filteredList = this._filterByDays(list);
-
 		return (
 			<section>
 				<h2 className="section-title">
 					Forecasts <em>for</em> {this.props.forecasts.city.name}
 				</h2>
 				<div className="forecasts l-panels l-panels@small l-panels@medium l-panels@large">
-					{filteredList
+					{list
 						.map((item, i) => {
 
 							const { dt_txt, weather, main: { temp } } = item;
