@@ -2,7 +2,6 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Alert } from "react-bootstrap";
 import spinner from "../assets/svgs/spinner.svg";
-
 import * as R from "ramda";
 import ForecastDaily from "./ForecastDaily";
 
@@ -24,8 +23,7 @@ export const Forecasts = () => {
 	}
 
 	return (
-		<section>
-			
+		<section>		
 			{(notification.message === "") 
 				? 
 				<div>

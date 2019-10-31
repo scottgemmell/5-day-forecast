@@ -1,5 +1,4 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import { Grid } from "react-bootstrap";
 import { Controls, Forecasts } from "../components/";
 

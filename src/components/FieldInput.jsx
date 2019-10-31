@@ -4,7 +4,17 @@ import {
 	FormGroup, FormControl, ControlLabel, HelpBlock,
 } from "react-bootstrap";
 
-const FieldInput = ({ id, name, value, title, helpText, placeholderText, hideLabel, modifier, inputRef }) => (
+const FieldInput = ({ 
+	id, 
+	name, 
+	value, 
+	title, 
+	helpText, 
+	placeholderText, 
+	hideLabel, 
+	modifier, 
+	inputRef 
+}) => (
 	<FormGroup
 		controlId={id}
 	>
@@ -41,6 +51,9 @@ FieldInput.propTypes = {
 	value: PropTypes.string,
 	helpText: PropTypes.string,
 	placeholderText: PropTypes.string,
+	hideLabel: PropTypes.bool, 
+	modifier: PropTypes.string, 
+	inputRef: PropTypes.func
 };
 
 export default FieldInput;
