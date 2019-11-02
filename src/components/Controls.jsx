@@ -4,7 +4,7 @@ import { fetchForecasts } from "../redux/actions/forecasts.actions";
 import { Grid, Form, Button } from "react-bootstrap";
 import { FieldInput } from "../components";
 
-export const Controls = () => {    
+export const Controls = () => {
 
 	const dispatch = useDispatch();
 
