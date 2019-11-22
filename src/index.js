@@ -30,7 +30,6 @@ const composeEnhancers = composeWithDevTools({
 	// Specify name here, actionsBlacklist, actionsCreators and other options if needed
 });
 
-//
 // shape the state structure
 const rootReducer = combineReducers({
 	forecasts: forecastsReducer,
@@ -47,7 +46,6 @@ const featureMiddleware = [
 const coreMiddleware = [
 	apiMiddleware
 ];
-//
 
 const store = createStore(
 	rootReducer, /* preloadedState, */ 
@@ -56,8 +54,7 @@ const store = createStore(
 			thunk, 
 			...featureMiddleware, ...coreMiddleware, normalizeMiddleware,
 			logger,
-		),
-		// other store enhancers if any
+		)
 	)
 );
 

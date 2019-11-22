@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/register": "^7.6.2",
     "@emotion/core": "^10.0.17",
     "@emotion/styled": "^10.0.17",
     "enzyme": "^3.8.0",
@@ -40,6 +41,16 @@
     "extends": "react-app"
   },
   "jest": {},
+  "wallaby": {
+    "autoDetect": true
+  },
+  "quokka": {
+    "babel": {
+      "presets": [
+        "react-app"
+      ]
+    }
+  },
   "browserslist": [
     ">0.2%",
     "not dead",
