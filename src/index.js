@@ -58,11 +58,12 @@ const store = createStore(
 	)
 );
 
-ReactDOM.render(
+const rootElement = document.getElementById("root");
+
+ReactDOM.createRoot(rootElement).render(
 	<Provider 
 		store={store}
 	>
 		<AppContainer />
-	</Provider>, 
-	document.getElementById("root")
+	</Provider>
 );
