@@ -39,9 +39,15 @@ export const Forecasts = () => {
 					{/* {forecasts.city.name} */}
 				</h2>
 				<div className="forecasts l-panels l-panels@small l-panels@medium l-panels@large">
-					{weather.read().list.filter((_k, v) => {
-			return (v % 8 === 0) ? true : false;
-		}).map((item, i) => (<ForecastDaily {...item} key={i} />))}
+					{weather
+						.read().list
+						.filter((_k, v) => ((
+							v % 8 === 0) ? true : false
+						))
+						.map((item, i) => (
+							<ForecastDaily {...item} key={i} />
+						))
+					}
 				</div>
 			</div>
 		</section>

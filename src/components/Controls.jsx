@@ -1,6 +1,4 @@
 import React, { useRef, useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { fetchForecasts } from "../redux/actions/forecasts.actions";
 import { Grid, Form, Button } from "react-bootstrap";
 import { FieldInput } from "../components";
 

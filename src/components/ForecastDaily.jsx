@@ -52,8 +52,8 @@ const ForecastDaily = ({ dt_txt, weather, main: { temp } }) => (
 			{weather[0].main === "Sunny" && <div>
 				<img src={sunnyDay} alt="Sunny" />
 			</div>}
-			{weather[0].main === "Snowy" && <div>
-				<img src={snowyDay} alt="Snowy" />
+			{(weather[0].main === "Snow" || weather[0].main === "Snowy") && <div>
+				<img src={snowyDay} alt={weather[0].main} />
 			</div>}
 		</Col>
 	</div>
