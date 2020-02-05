@@ -1,6 +1,5 @@
 import { FORECASTS, FETCH_FORECASTS, setForecasts } from "../actions/forecasts.actions.js";
 import { API_ERROR, apiRequest, API_SUCCESS } from "../actions/api.actions";
-import { setLoader } from "../actions/ui.actions";
 import { setNotification } from "../actions/notifications.actions.js";
 
 function getForecastsUrl({city, country}){
@@ -22,13 +21,11 @@ export const forecastsMiddleware = () => (next) => (action) => {
 			}), 
 			feature: FORECASTS })
 		);
-		next(setLoader({ state: true, feature: FORECASTS }));
 		break;
 	
 	case `${FORECASTS} ${API_SUCCESS}`:
 		next(setForecasts({ forecasts: action.payload }));
 		next(setNotification({ message: "", feature: FORECASTS }));
-		next(setLoader({ state: false, feature: FORECASTS }));
 		break;
 
 	case `${FORECASTS} ${API_ERROR}`:
@@ -38,7 +35,6 @@ export const forecastsMiddleware = () => (next) => (action) => {
 			// status: action.payload.status, 
 			feature: FORECASTS 
 		}));
-		next(setLoader({ state: false, feature: FORECASTS }));
 		break;
 
 	default:
