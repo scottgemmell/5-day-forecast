@@ -1,22 +1,16 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Alert } from "react-bootstrap";
-import spinner from "../assets/svgs/spinner.svg";
+
 import * as R from "ramda";
 import ForecastDaily from "./ForecastDaily";
 
 export const Forecasts = () => {
-	
-	const loading = useSelector(state => state.ui.loading);
 	const forecasts = useSelector(state => state.forecasts);
 	const list = useSelector(state => state.forecasts.list);
 	const notification = useSelector(state => state.notification);
 
-	if (loading === true) {
-		return (<div className="u-spinner">
-			<img src={spinner} alt="Loading..." />
-		</div>);
-	}
+	
 
 	if (R.isEmpty(forecasts)) {
 		return (<div></div>);

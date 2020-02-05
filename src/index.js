@@ -15,7 +15,6 @@ import AppContainer from "./containers/AppContainer";
 import { forecastsReducer } from "./redux/reducers/forecasts.reducer";
 import { forecastsMiddleware } from "./redux/middleware/forecasts.middleware";
 import { apiMiddleware } from "./redux/middleware/api.middleware";
-import { uiReducer } from "./redux/reducers/ui.reducer";
 import { notificationReducer } from "./redux/reducers/notification.reducer";
 import { normalizeMiddleware } from "./redux/middleware/normalize.middleware";
 
@@ -33,7 +32,6 @@ const composeEnhancers = composeWithDevTools({
 // shape the state structure
 const rootReducer = combineReducers({
 	forecasts: forecastsReducer,
-	ui: uiReducer,
 	notification: notificationReducer
 });
 
