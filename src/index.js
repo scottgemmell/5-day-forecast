@@ -16,7 +16,6 @@ import { forecastsReducer } from "./redux/reducers/forecasts.reducer";
 import { forecastsMiddleware } from "./redux/middleware/forecasts.middleware";
 import { apiMiddleware } from "./redux/middleware/api.middleware";
 import { notificationReducer } from "./redux/reducers/notification.reducer";
-import { normalizeMiddleware } from "./redux/middleware/normalize.middleware";
 
 
 const logger = createLogger({
@@ -50,7 +49,7 @@ const store = createStore(
 	composeEnhancers(
 		applyMiddleware(
 			thunk, 
-			...featureMiddleware, ...coreMiddleware, normalizeMiddleware,
+			...featureMiddleware, ...coreMiddleware,
 			logger,
 		)
 	)
