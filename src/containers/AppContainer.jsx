@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import { Grid } from "react-bootstrap";
-import { Controls } from "../components/";
+//import { Controls } from "../components/";
+import { useDispatch } from "react-redux";
+import { fetchForecasts } from "../redux/actions/forecasts.actions";
 import ErrorBoundary from "../ErrorBoundary";
 import spinner from "../assets/svgs/spinner.svg";
 
@@ -13,10 +15,18 @@ const Spinner = () => {
 	</div>);
 }
 
-const AppContainer = () => (
+export const AppContainer = () => {
+
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		dispatch(fetchForecasts());
+	}, []);
+
+	return (
 	
 		<div className="app">
-			<Controls />
+			{/* <Controls /> */}
 			<Grid>
 				<ErrorBoundary fallback="Nae weather reports today...">
 					<React.Suspense fallback={<Spinner />}>
@@ -27,5 +37,6 @@ const AppContainer = () => (
 		</div>
 	
 );
+	}
 
 export default AppContainer;

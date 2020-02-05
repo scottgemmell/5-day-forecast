@@ -2,12 +2,8 @@ export const FORECASTS = "[Forecasts]";
 export const FETCH_FORECASTS = `${FORECASTS} FETCH`;
 export const SET_FORECASTS = `${FORECASTS} SET`;
 
-export const fetchForecasts = ({ city, country }) => ({
-	type: FETCH_FORECASTS,
-	payload: {
-		city,
-		country
-	}
+export const fetchForecasts = () => ({
+	type: FETCH_FORECASTS
 });
 
 export const setForecasts = ({ forecasts }) => ({

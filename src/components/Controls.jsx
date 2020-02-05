@@ -12,17 +12,10 @@ export const Controls = () => {
 	let countryInput = useRef(null);
 
 	useEffect(() => {
-		cityInput.focus();
+		//cityInput.focus();
+
+		dispatch(fetchForecasts());
 	}, []);
-
-	const handleSubmit = (e) => {
-		e.preventDefault();
-
-		dispatch(fetchForecasts({
-			city: cityInput.value,
-			country: countryInput.value
-		}));
-	};
 
 	return (
 		<header className="header">
@@ -32,12 +25,13 @@ export const Controls = () => {
 				</h1>
 				<section>
 					<div className="c-controls">
-						<Form inline onSubmit={handleSubmit}>
+						{/* <Form inline> */}
 							<div className="c-controls__inputs">
 								<FieldInput   
-									inputRef={input => {
-										cityInput = input;
-									}} 
+									// inputRef={input => {
+									// 	cityInput = input;
+									// }} 
+									disabled
 									id="fieldCity" 
 									name="city"
 									placeholderText="Glasgow" 
@@ -47,9 +41,10 @@ export const Controls = () => {
 								/>
 								{" "}
 								<FieldInput 
-									inputRef={input => {
-										countryInput = input;
-									}} 
+									// inputRef={input => {
+									// 	countryInput = input;
+									// }} 
+									disabled
 									id="fieldCountry" 
 									name="country"
 									placeholderText="UK" 
@@ -66,7 +61,7 @@ export const Controls = () => {
 									Get 5-day forecast
 								</Button>
 							</div>
-						</Form>
+						{/* </Form> */}
 					</div>
 				</section>
 			</Grid>
