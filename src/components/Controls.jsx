@@ -4,15 +4,15 @@ import { FieldInput } from "../components";
 
 export const Controls = () => {
 
-	const dispatch = useDispatch();
+	//const dispatch = useDispatch();
 
 	let cityInput = useRef(null);
-	let countryInput = useRef(null);
+	// let countryInput = useRef(null);
 
 	useEffect(() => {
-		//cityInput.focus();
+		cityInput.focus();
 
-		dispatch(fetchForecasts());
+		//dispatch(fetchForecasts());
 	}, []);
 
 	return (
@@ -23,12 +23,12 @@ export const Controls = () => {
 				</h1>
 				<section>
 					<div className="c-controls">
-						{/* <Form inline> */}
+						<Form inline>
 							<div className="c-controls__inputs">
 								<FieldInput   
-									// inputRef={input => {
-									// 	cityInput = input;
-									// }} 
+									inputRef={input => {
+										cityInput = input;
+									}} 
 									disabled
 									id="fieldCity" 
 									name="city"
@@ -59,7 +59,7 @@ export const Controls = () => {
 									Get 5-day forecast
 								</Button>
 							</div>
-						{/* </Form> */}
+						</Form>
 					</div>
 				</section>
 			</Grid>
