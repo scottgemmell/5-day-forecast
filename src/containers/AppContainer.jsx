@@ -1,11 +1,11 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { Container } from "react-bootstrap";
 import { Controls } from "../components/";
 import ErrorBoundary from "../ErrorBoundary";
 import spinner from "../assets/svgs/spinner.svg";
 
 //const Forecasts = React.lazy(() => Promise.reject());
-const Forecasts = React.lazy(() => import("../components/Forecasts"));
+const Forecasts = lazy(() => import("../components/Forecasts"));
 
 const Spinner = () => {
 	return (<div className="u-spinner">
@@ -18,9 +18,9 @@ export const AppContainer = () => (
 		<Controls />
 		<Container>
 			<ErrorBoundary fallback="Nae weather reports today...">
-				<React.Suspense fallback={<Spinner />}>
+				<Suspense fallback={<Spinner />}>
 					<Forecasts />
-				</React.Suspense>
+				</Suspense>
 			</ErrorBoundary>
 		</Container>
 	</div>
