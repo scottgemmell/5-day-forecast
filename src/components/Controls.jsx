@@ -1,23 +1,23 @@
-import React, { useRef, useEffect } from "react";
-import { Grid, Form, Button } from "react-bootstrap";
+import React from "react";
+import { Container, Form, Button } from "react-bootstrap";
 import { FieldInput } from "../components";
 
 export const Controls = () => {
 
 	//const dispatch = useDispatch();
 
-	let cityInput = useRef(null);
+	//let cityInput = useRef(null);
 	// let countryInput = useRef(null);
 
-	useEffect(() => {
-		cityInput.focus();
+	//useEffect(() => {
+		//cityInput.focus();
 
 		//dispatch(fetchForecasts());
-	}, []);
+	//}, []);
 
 	return (
 		<header className="header">
-			<Grid>
+			<Container>
 				<h1 className="page-title header__title">
 					5-day forecast
 				</h1>
@@ -26,9 +26,9 @@ export const Controls = () => {
 						<Form inline>
 							<div className="c-controls__inputs">
 								<FieldInput   
-									inputRef={input => {
-										cityInput = input;
-									}} 
+									// inputRef={input => {
+									// 	cityInput = input;
+									// }} 
 									disabled
 									id="fieldCity" 
 									name="city"
@@ -53,7 +53,6 @@ export const Controls = () => {
 							</div>
 							<div className="c-controls__actions">
 								<Button 
-									bsStyle="primary"
 									type="submit" 
 								>
 									Get 5-day forecast
@@ -62,7 +61,7 @@ export const Controls = () => {
 						</Form>
 					</div>
 				</section>
-			</Grid>
+			</Container>
 		</header>   
 	);
 };

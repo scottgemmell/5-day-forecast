@@ -21,7 +21,7 @@
     "prop-types": "^15.7.2",
     "ramda": "^0.26.1",
     "react": "^0.0.0-experimental-241c4467e",
-    "react-bootstrap": "^0.32.4",
+    "react-bootstrap": "^1.0.0-beta.16",
     "react-dom": "^0.0.0-experimental-241c4467e",
     "react-scripts": "^3.2.0"
   },

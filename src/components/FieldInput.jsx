@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {
-	FormGroup, FormControl, ControlLabel, HelpBlock,
+	Form, Alert,
 } from "react-bootstrap";
 
 const FieldInput = ({ 
@@ -15,28 +15,28 @@ const FieldInput = ({
 	modifier, 
 	inputRef 
 }) => (
-	<FormGroup
+	<Form.Group
 		controlId={id}
 	>
-		<ControlLabel className={hideLabel ? "u-visibility-hidden" : ""}>
+		<Form.Label className={hideLabel ? "u-visibility-hidden" : ""}>
 			{title}
-		</ControlLabel>
+		</Form.Label>
 		{" "}
-		<FormControl
-			inputRef={inputRef}
+		<Form.Control
+			//inputRef={inputRef}
 			type="text" 
 			name={name}
 			value={value}
 			placeholder={placeholderText}
-			bsClass={`form-control ${modifier}`}
+			// bsClass={`form-control ${modifier}`}
 		/>
-		<FormControl.Feedback />
+		<Form.Control.Feedback />
 
-		{helpText && <HelpBlock>
+		{helpText && <Alert variant="danger">
 			{helpText}
-		</HelpBlock>}
+		</Alert>}
 
-	</FormGroup>
+	</Form.Group>
 );
 
 FieldInput.defaultProps = {

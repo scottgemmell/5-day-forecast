@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import { Controls } from "../components/";
 import ErrorBoundary from "../ErrorBoundary";
 import spinner from "../assets/svgs/spinner.svg";
@@ -16,13 +16,13 @@ const Spinner = () => {
 export const AppContainer = () => (
 	<div className="app">
 		<Controls />
-		<Grid>
+		<Container>
 			<ErrorBoundary fallback="Nae weather reports today...">
 				<React.Suspense fallback={<Spinner />}>
 					<Forecasts />
 				</React.Suspense>
 			</ErrorBoundary>
-		</Grid>
+		</Container>
 	</div>
 );
 
